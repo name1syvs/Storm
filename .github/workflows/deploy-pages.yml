@@ -1,7 +1,7 @@
-# For the Storm repo only (static site at repository root). Not used when this folder
-# lives under Website/ in the Swift app repo — GitHub only runs workflows from /.github/.
+# Storm public repo: copy this file to .github/workflows/ at the repository root.
+# Matches GitHub’s “static” Pages template so Settings → Pages can bind to it reliably.
 
-name: Deploy site to GitHub Pages
+name: Deploy static content to Pages
 
 on:
   push:
@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
@@ -39,4 +39,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
