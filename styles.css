@@ -406,26 +406,6 @@ main {
   justify-content: center;
 }
 
-.hero-kicker {
-  margin: 0 0 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: #7dd3fc;
-  text-shadow: 0 0 24px rgba(56, 189, 248, 0.55);
-  transition: color 0.4s var(--ease-out-expo), letter-spacing 0.5s var(--ease-out-expo);
-}
-
-@media (prefers-color-scheme: light) {
-  .hero-kicker {
-    color: rgb(2, 82, 140);
-    text-shadow:
-      0 0 22px rgba(14, 165, 233, 0.55),
-      0 0 40px rgba(59, 130, 246, 0.25);
-  }
-}
-
 .hero-title {
   font-family: var(--font);
   font-size: clamp(2.35rem, 7.5vw, 3.65rem);
@@ -502,26 +482,53 @@ main {
   }
 }
 
-.hero p.lead {
-  font-size: 1.14rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  max-width: 28rem;
-  margin: 0 auto 0.45rem;
-  line-height: 1.55;
-  transition: color 0.35s ease;
+/* Hero hook: blue, short parallel punch */
+.hero-hook {
+  margin: 0 auto 0.65rem;
+  max-width: min(30rem, 92vw);
+  padding: 0 0.75rem;
+  font-family: var(--font);
+  font-size: clamp(0.98rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: #7dd3fc;
+  text-shadow:
+    0 0 28px rgba(56, 189, 248, 0.55),
+    0 0 48px rgba(14, 165, 233, 0.22);
+  transition: color 0.35s ease, text-shadow 0.4s ease;
 }
 
-.hero-tagline {
-  font-size: 1rem;
-  color: var(--text-muted);
-  margin: 0 auto 1.85rem;
-  max-width: 26rem;
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.5;
+
+@media (prefers-color-scheme: light) {
+  .hero-hook {
+    color: rgb(2, 95, 170);
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.75),
+      0 0 24px rgba(14, 165, 233, 0.45),
+      0 0 44px rgba(59, 130, 246, 0.28);
+  }
+}
+
+.hero-motto {
+  margin: 0 auto 1.65rem;
+  padding: 0 0.75rem;
   font-family: var(--font);
-  transition: color 0.35s ease;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(167, 139, 250, 0.85);
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.35);
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  .hero-motto {
+    color: rgb(91, 33, 182);
+    text-shadow: none;
+    letter-spacing: 0.18em;
+  }
 }
 
 /* Opacité seule : ne pas animer transform ici sinon le survol des cartes est bloqué (fill-mode both). */
@@ -546,23 +553,20 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .page-home .hero-kicker {
-    animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
-  }
   .page-home .hero-title {
-    animation: heroRise 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+    animation: heroRise 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
   }
   .page-home .hero-dots {
-    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
   }
-  .page-home .hero .lead {
-    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both;
+  .page-home .hero .hero-hook {
+    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
   }
-  .page-home .hero .hero-tagline {
-    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+  .page-home .hero .hero-motto {
+    animation: homeIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
   }
   .page-home .hero .cta-row {
-    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    animation: heroRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.38s both;
   }
   /* h2 Overview = 1er enfant ; les cartes sont les article 1–4 */
   .page-home .features > article:nth-of-type(1) {
