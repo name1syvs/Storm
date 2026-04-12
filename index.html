@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="page-home">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      (function () {
+        var p = window.location.pathname;
+        if (p.endsWith("/") || p.endsWith(".html")) return;
+        var b = document.createElement("base");
+        b.href = window.location.origin + p + "/";
+        document.head.insertBefore(b, document.head.firstChild);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Storm helps you leave on time, every time. No more guessing at the door."
+    />
+    <title>Storm mobile app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="Main">
+        <a class="brand" href="index.html"><span class="brand-text">Storm</span></a>
+        <div class="nav-links">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="legal-notice.html">Legal notice</a>
+          <a href="mailto:Barrijal.s.yasmine@gmail.com">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="hero-kicker">Arrive calm, leave on time</p>
+        <h1 class="hero-title">Leave on time, every time!</h1>
+        <div class="hero-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="lead">
+          A little heads up before you run late. So you are not guessing at the door.
+        </p>
+        <p class="hero-tagline">For real days, real traffic, real “I should have left already” moments.</p>
+        <div class="cta-row">
+          <!-- Replace href when the app is on the store -->
+          <a class="btn btn-primary" href="#" aria-disabled="true" title="Add your App Store link"
+            >App Store (soon)</a
+          >
+          <a class="btn btn-secondary" href="mailto:Barrijal.s.yasmine@gmail.com">Support</a>
+        </div>
+      </section>
+
+      <section class="features" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="features-heading">Overview</h2>
+        <article class="card">
+          <h3>Planning</h3>
+          <p>
+            Storm ties together what is on your calendar and the time you need on the road, so you have a
+            realistic moment to step out.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Your permissions</h3>
+          <p>
+            Location and calendar access are optional and controlled in system settings. The app only uses
+            what you allow.
+          </p>
+        </article>
+        <article class="card">
+          <h3>At the door</h3>
+          <p>
+            The goal is simple: less second guessing when you are about to leave. You already made the plan.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Legal</h3>
+          <p>
+            <a href="privacy.html">Privacy policy</a>
+            and
+            <a href="legal-notice.html">legal notice</a>
+            are available if you want the full wording.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © Storm.
+        <a href="privacy.html">Privacy</a>,
+        <a href="legal-notice.html">Legal notice</a>
+      </p>
+    </footer>
+  </body>
+</html>

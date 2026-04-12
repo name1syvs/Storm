@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 3 21 33" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="stormMark" x1="8" y1="6" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7eb8ff" />
+      <stop offset="1" stop-color="#8b7ad8" />
+    </linearGradient>
+  </defs>
+  <path d="M 23 4 L 11 20 h 6 L 12 36 L 31 15 h -8 L 27 4 Z" fill="url(#stormMark)" />
+</svg>

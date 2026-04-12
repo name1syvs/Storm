@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/yasminebarrijal/Desktop/MyApp/Mijn app.swiftpm/Website/Website"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "/Users/yasminebarrijal/Desktop/MyApp/Mijn app.swiftpm/Website"
+command = "echo 'Static site — publish Website/'"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
