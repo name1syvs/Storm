@@ -758,6 +758,9 @@ main {
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     0 0 0 1px rgba(0, 0, 0, 0.4),
     0 0 32px rgba(124, 58, 237, 0.12);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 @media (prefers-color-scheme: dark) and (prefers-reduced-motion: no-preference) {
@@ -875,14 +878,8 @@ main {
   }
 
   .card:hover {
-    border-color: rgba(244, 114, 182, 0.45);
-    background: rgba(26, 22, 42, 0.65);
-    box-shadow:
-      0 28px 64px rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.18),
-      0 0 48px rgba(168, 85, 247, 0.28),
-      0 0 80px rgba(14, 165, 233, 0.12);
-    transform: translateY(-9px) scale(1.015);
+    transform: translateY(-6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 }
 
