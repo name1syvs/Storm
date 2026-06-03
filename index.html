@@ -2,6 +2,7 @@
 <html lang="en" class="page-home">
   <head>
     <meta charset="utf-8" />
+
     <script>
       (function () {
         var p = window.location.pathname;
@@ -12,49 +13,80 @@
       })();
     </script>
 
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-const supabaseUrl = "https://pyxhpdbnetlsqnexfsly.supabase.co/rest/v1/";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5eGhwZGJuZXRsc3FuZXhmc2x5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3OTUwOTYsImV4cCI6MjA4ODM3MTA5Nn0.Zcs6ozB7tueWlozpI1WX3QIt9gdySPeSgjq-A1UBm2s";
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { createClient } = supabase;
 
-const client = supabase.createClient(supabaseUrl, supabaseKey);
+        const supabaseUrl = "https://pyxhpdbnetlsqnexfsly.supabase.co";
+        const supabaseKey = "TON_ANON_KEY_ICI";
 
-const form = document.getElementById("waitlistForm");
-const emailInput = document.getElementById("emailInput");
-const successMsg = document.getElementById("successMsg");
+        const client = createClient(supabaseUrl, supabaseKey);
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+        const form = document.getElementById("waitlistForm");
+        const emailInput = document.getElementById("emailInput");
+        const successMsg = document.getElementById("successMsg");
+        const botField = document.getElementById("company");
 
-  const email = emailInput.value;
+        if (!form || !emailInput) return;
 
-  const { error } = await client
-    .from("waitlist")
-    .insert([{ email }]);
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-  if (error) {
-    alert("Oops, try again.");
-    return;
-  }
+          // 🧠 anti-bot (honeypot)
+          if (botField && botField.value.trim() !== "") return;
 
-  form.style.display = "none";
-  successMsg.style.display = "block";
-});
-</script>
-    
+          const email = emailInput.value;
+
+          const { error } = await client
+            .from("waitlist")
+            .insert([{ email }]);
+
+          if (error) {
+            console.error(error);
+            alert("Oops, try again.");
+            return;
+          }
+
+          form.style.display = "none";
+          successMsg.style.display = "block";
+        });
+      });
+    </script>
+
+    <!-- Honeypot anti-bot -->
+    <input
+      type="text"
+      name="company"
+      id="company"
+      style="display:none"
+      autocomplete="off"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Never be late again. Storm tells you exactly when to start getting ready and when to leave based on your calendar, traffic and weather." />
+    <meta
+      name="description"
+      content="Never be late again. Storm tells you exactly when to start getting ready and when to leave based on your calendar, traffic and weather."
+    />
     <title>Storm — Never be late again</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <header class="site-header">
       <nav class="nav-inner" aria-label="Main">
-        <a class="brand" href="index.html"><span class="brand-text">Storm</span></a>
+        <a class="brand" href="index.html">
+          <span class="brand-text">Storm</span>
+        </a>
         <div class="nav-links">
           <a href="privacy.html">Privacy policy</a>
           <a href="legal-notice.html">Legal notice</a>
@@ -62,207 +94,132 @@ form.addEventListener("submit", async (e) => {
         </div>
       </nav>
     </header>
+
     <main>
+      <!-- HERO -->
+      <section class="hero">
+        <h1 class="hero-title">Never be late again.</h1>
 
-  <section class="hero">
-    <h1 class="hero-title">Never be late again.</h1>
+        <div class="hero-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
 
-    <div class="hero-dots" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
+        <p class="hero-hook">
+          Storm combines your calendar, traffic and weather to tell you exactly
+          when to start preparing and when to leave.
+        </p>
 
-    <p class="hero-hook">
-      Storm combines your calendar, traffic and weather
-      to tell you exactly when to start preparing and when to leave.
-    </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#waitlistForm">Join the Beta</a>
+          <a
+            class="btn btn-secondary"
+            href="mailto:Barrijal.s.yasmine@gmail.com"
+          >
+            Contact
+          </a>
+        </div>
+      </section>
 
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#">
-        Join the Beta
-      </a>
+      <!-- WHY -->
+      <section class="features">
+        <h2 class="features-heading">Why Storm</h2>
 
-      <a class="btn btn-secondary"
-         href="mailto:Barrijal.s.yasmine@gmail.com">
-        Contact
-      </a>
-    </div>
-  </section>
+        <article class="card">
+          <h3>Sound familiar?</h3>
+          <p>You think you have enough time, then suddenly you're rushing out.</p>
+        </article>
 
-  <section class="features">
+        <article class="card">
+          <h3>Traffic changes everything</h3>
+          <p>The weather gets worse and timing disappears instantly.</p>
+        </article>
 
-    <h2 class="features-heading">
-      Why Storm
-    </h2>
+        <article class="card">
+          <h3>Stop guessing</h3>
+          <p>Storm calculates everything so you know when to prepare.</p>
+        </article>
 
-    <article class="card">
-      <h3>Sound familiar?</h3>
-      <p>
-        You think you have enough time,
-        then suddenly you're rushing out
-        the door.
-      </p>
-    </article>
+        <article class="card">
+          <h3>Leave at the right moment</h3>
+          <p>Get notified when it's time to go.</p>
+        </article>
+      </section>
 
-    <article class="card">
-      <h3>Traffic changes everything</h3>
-      <p>
-        The weather gets worse,
-        traffic builds up and your
-        perfect timing disappears.
-      </p>
-    </article>
+      <!-- HOW IT WORKS -->
+      <section class="features">
+        <h2 class="features-heading">How it works</h2>
 
-    <article class="card">
-      <h3>Stop guessing</h3>
-      <p>
-        Storm calculates everything
-        for you so you know exactly
-        when to start getting ready.
-      </p>
-    </article>
+        <article class="card">
+          <h3>1. Add your events</h3>
+          <p>Use your calendar normally.</p>
+        </article>
 
-    <article class="card">
-      <h3>Leave at the right moment</h3>
-      <p>
-        Get notified when it's time
-        to leave and arrive on time
-        with confidence.
-      </p>
-    </article>
+        <article class="card">
+          <h3>2. Storm checks conditions</h3>
+          <p>Traffic, weather, travel time.</p>
+        </article>
 
-  </section>
+        <article class="card">
+          <h3>3. Get ready</h3>
+          <p>Storm tells you when to prepare.</p>
+        </article>
 
-  <section class="features">
+        <article class="card">
+          <h3>4. Leave on time</h3>
+          <p>No stress, no guessing.</p>
+        </article>
+      </section>
 
-    <h2 class="features-heading">
-      How it works
-    </h2>
+      <!-- EXAMPLE -->
+      <section class="features">
+        <h2 class="features-heading">Example</h2>
 
-    <article class="card">
-      <h3>1. Add your events</h3>
-      <p>
-        Simply use your calendar
-        as you normally would.
-      </p>
-    </article>
+        <article class="card">
+          <h3>📅 Meeting 15:00</h3>
+          <p>Added to calendar.</p>
+        </article>
 
-    <article class="card">
-      <h3>2. Storm checks conditions</h3>
-      <p>
-        Traffic, weather and travel
-        time are analyzed automatically.
-      </p>
-    </article>
+        <article class="card">
+          <h3>🚿 Get ready 14:05</h3>
+          <p>Based on your routine.</p>
+        </article>
 
-    <article class="card">
-      <h3>3. Start getting ready</h3>
-      <p>
-        Storm tells you exactly when
-        it's time to prepare.
-      </p>
-    </article>
+        <article class="card">
+          <h3>🚗 Leave 14:32</h3>
+          <p>With traffic & weather.</p>
+        </article>
 
-    <article class="card">
-      <h3>4. Leave on time</h3>
-      <p>
-        No more mental calculations,
-        no more last-minute stress.
-      </p>
-    </article>
+        <article class="card">
+          <h3>✅ Arrive on time</h3>
+          <p>Calm and ready.</p>
+        </article>
+      </section>
 
-  </section>
+      <!-- WAITLIST -->
+      <section class="hero" id="waitlist">
+        <h2 class="hero-title">Beat the Storm. Be on time.</h2>
 
-  <section class="features">
+        <p class="hero-hook">Join the first beta users and help shape Storm.</p>
 
-    <h2 class="features-heading">
-      Example
-    </h2>
+        <form id="waitlistForm" class="waitlist-form">
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter your email"
+            required
+          />
 
-    <article class="card">
-      <h3>📅 Meeting at 15:00</h3>
-      <p>
-        Location added to your calendar.
-      </p>
-    </article>
+          <button class="btn btn-primary" type="submit">
+            Join the Beta
+          </button>
+        </form>
 
-    <article class="card">
-      <h3>🚿 Get ready at 14:05</h3>
-      <p>
-        Based on your preferred preparation time.
-      </p>
-    </article>
+        <p id="successMsg" style="display: none;">
+          You're on the list ⚡
+        </p>
+      </section>
+    </main>
 
-    <article class="card">
-      <h3>🚗 Leave at 14:32</h3>
-      <p>
-        Taking traffic and weather into account.
-      </p>
-    </article>
-
-    <article class="card">
-      <h3>✅ Arrive on time</h3>
-      <p>
-        Calm, prepared and without rushing.
-      </p>
-    </article>
-
-  </section>
-
-  <section class="features">
-
-    <h2 class="features-heading">
-      Perfect for
-    </h2>
-
-    <article class="card">
-      <h3>🎓 Students</h3>
-      <p>
-        Never miss a class again.
-      </p>
-    </article>
-
-    <article class="card">
-      <h3>💼 Professionals</h3>
-      <p>
-        Stay punctual for every meeting.
-      </p>
-    </article>
-
-    <article class="card">
-      <h3>✈️ Travelers</h3>
-      <p>
-        Leave at the perfect moment.
-      </p>
-    </article>
-
-    <article class="card">
-      <h3>👨‍👩‍👧 Busy people</h3>
-      <p>
-        Less stress, better timing.
-      </p>
-    </article>
-
-  </section>
-
-  <section class="hero">
-
-    <h2 class="hero-title">
-      Beat the Storm. Be on time.
-    </h2>
-
-    <p class="hero-hook">
-      Join the first beta users and help shape Storm.
-    </p>
-
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#">
-        Get Early Access
-      </a>
-    </div>
-
-  </section>
-
-</main>
     <footer class="site-footer">
       <p>
         © Storm.
