@@ -45,8 +45,8 @@
             .insert([{ email }]);
 
           if (error) {
-            console.error(error);
-            alert("Oops, try again.");
+            console.log("SUPABASE ERROR:", error);
+            alert(error.message);
             return;
           }
 
