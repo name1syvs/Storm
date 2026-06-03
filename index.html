@@ -11,6 +11,38 @@
         document.head.insertBefore(b, document.head.firstChild);
       })();
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = "TON_SUPABASE_URL";
+const supabaseKey = "TON_ANON_KEY";
+
+const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+const form = document.getElementById("waitlistForm");
+const emailInput = document.getElementById("emailInput");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = emailInput.value;
+
+  const { error } = await client
+    .from("waitlist")
+    .insert([{ email }]);
+
+  if (error) {
+    alert("Oops, try again.");
+    return;
+  }
+
+  form.style.display = "none";
+  successMsg.style.display = "block";
+});
+</script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Never be late again. Storm tells you exactly when to start getting ready and when to leave based on your calendar, traffic and weather." />
     <title>Storm — Never be late again</title>
