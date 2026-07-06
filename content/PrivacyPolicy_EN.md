@@ -28,7 +28,7 @@ The controller of personal data collected through Storm is:
 | **Identity** | The individual who operates the Storm mobile application (natural person) |
 | **Capacity** | Individual developer |
 | **Country** | Belgium |
-| **Contact email** | Barrijal.s.yasmine@gmail.com |
+| **Contact email** | contact@getstorm.app |
 
 The **legal name** of the controller is not published on this page for personal safety. It is disclosed to supervisory authorities where the law requires it, and to individuals who submit a **valid** access or other GDPR request via the email above, when identification is necessary to handle the request.
 
@@ -124,7 +124,7 @@ Under the GDPR and Belgian law, you have the right to:
 - **Object** (Art. 21) — object to processing based on legitimate interests, where applicable  
 - **Withdraw consent** — for location or other consent-based processing, without affecting the lawfulness of prior processing
 
-**To exercise your rights**, email: **Barrijal.s.yasmine@gmail.com**
+**To exercise your rights**, email: **contact@getstorm.app**
 
 The controller will respond within **one month** of receipt, extendable by up to **two further months** for complex or numerous requests, with prior notice.
 
@@ -150,7 +150,7 @@ In the event of a personal data breach likely to result in a high risk to your r
 
 The App is **not directed at children under 16**. If you are under 16, do not use the App or provide personal data. If the controller becomes aware that personal data was collected from a child under 16 without appropriate consent, steps will be taken to delete it promptly.
 
-Parents or guardians who believe a child has provided data may contact: **Barrijal.s.yasmine@gmail.com**
+Parents or guardians who believe a child has provided data may contact: **contact@getstorm.app**
 
 ## 9. Changes to this policy
 
@@ -167,6 +167,6 @@ For any question about this Privacy Policy or the processing of your personal da
 | | |
 |---|---|
 | **Contact** | Data protection / publisher (Storm) |
-| **Email** | Barrijal.s.yasmine@gmail.com |
+| **Email** | contact@getstorm.app |
 
 Requests will be handled diligently and in line with your statutory rights.

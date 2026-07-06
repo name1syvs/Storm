@@ -16,7 +16,7 @@ In accordance with applicable rules, including requirements for transparency in 
 | **Publisher** | The individual operating the Storm application |
 | **Capacity** | Natural person, individual developer |
 | **Location** | Belgium |
-| **Email** | Barrijal.s.yasmine@gmail.com |
+| **Email** | contact@getstorm.app |
 
 The **legal name** of the publisher is not displayed on this public page to protect personal safety. It is provided to supervisory authorities where required by law, and to data subjects who make a **valid request** under applicable data-protection law via the contact email above.
 
@@ -62,7 +62,7 @@ Personal data is processed when you use Storm. Processing is governed by the Gen
 
 For details on purposes, legal bases, retention, and your rights, see the **Privacy Policy** for Storm, available in the application and at the URL provided in the app.
 
-You may exercise rights of access, rectification, erasure, restriction, objection, and portability by contacting the publisher at: **Barrijal.s.yasmine@gmail.com**
+You may exercise rights of access, rectification, erasure, restriction, objection, and portability by contacting the publisher at: **contact@getstorm.app**
 
 ## 6. Cookies and similar technologies
 
@@ -90,7 +90,7 @@ These legal notices are governed by **Belgian law**. In the event of a dispute r
 
 For any question regarding these legal notices or Storm, contact the publisher at:
 
-**Barrijal.s.yasmine@gmail.com**
+**contact@getstorm.app**
 
 The publisher will respond within a reasonable time and, for requests relating to personal data, within the time limits set by the GDPR (generally within one month, extendable in complex cases with notice).
 

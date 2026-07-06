@@ -12,7 +12,7 @@
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Legal notice (Storm)</title>
+    <title>Terms of use (Storm)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,15 +28,15 @@
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="privacy.html">Privacy policy</a>
-          <a href="legal-notice.html" aria-current="page">Legal notice</a>
-          <a href="terms.html">Terms</a>
+          <a href="legal-notice.html">Legal notice</a>
+          <a href="terms.html" aria-current="page">Terms</a>
         </div>
       </nav>
     </header>
 
     <main>
       <div class="doc-head">
-        <h1>Legal notice</h1>
+        <h1>Terms of use</h1>
         <p>Authoritative text loaded from the project markdown (English).</p>
       </div>
       <div id="doc" class="loading" role="region" aria-live="polite">Loading…</div>
@@ -50,9 +50,9 @@
     <script>
       (function () {
         var el = document.getElementById("doc");
-        fetch("content/LegalNotice_EN.md")
+        fetch("content/Terms_EN.md")
           .then(function (r) {
-            if (!r.ok) throw new Error("Could not load legal notice.");
+            if (!r.ok) throw new Error("Could not load terms.");
             return r.text();
           })
           .then(function (md) {
@@ -62,7 +62,7 @@
           .catch(function (e) {
             el.classList.remove("loading");
             el.innerHTML =
-              '<p class="doc-error">Could not load the document. Open this site via a local server (see Website/README.md) or check that <code>content/LegalNotice_EN.md</code> exists.</p>';
+              '<p class="doc-error">Could not load the document. Open this site via a local server (see Website/README.md) or check that <code>content/Terms_EN.md</code> exists.</p>';
           });
       })();
     </script>

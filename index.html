@@ -29,16 +29,22 @@
         const emailInput = document.getElementById("emailInput");
         const successMsg = document.getElementById("successMsg");
         const botField = document.getElementById("company");
+        const submitBtn = form ? form.querySelector(".capture-submit") : null;
 
         if (!form || !emailInput) return;
 
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
 
-          // 🧠 anti-bot (honeypot)
+          // anti-bot (honeypot)
           if (botField && botField.value.trim() !== "") return;
 
           const email = emailInput.value;
+          const originalLabel = submitBtn ? submitBtn.textContent : "";
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Joining…";
+          }
 
           const { error } = await client
             .from("waitlist")
@@ -46,24 +52,22 @@
 
           if (error) {
             console.log("SUPABASE ERROR:", error);
-            alert(error.message);
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalLabel;
+            }
+            emailInput.setCustomValidity("This email could not be added. Please try again.");
+            emailInput.reportValidity();
             return;
           }
 
-          form.style.display = "none";
-          successMsg.style.display = "block";
+          form.hidden = true;
+          successMsg.hidden = false;
         });
+
+        emailInput.addEventListener("input", () => emailInput.setCustomValidity(""));
       });
     </script>
-
-    <!-- Honeypot anti-bot -->
-    <input
-      type="text"
-      name="company"
-      id="company"
-      style="display:none"
-      autocomplete="off"
-    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
@@ -90,7 +94,8 @@
         <div class="nav-links">
           <a href="privacy.html">Privacy policy</a>
           <a href="legal-notice.html">Legal notice</a>
-          <a href="mailto:Barrijal.s.yasmine@gmail.com">Contact</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:contact@getstorm.app">Contact</a>
         </div>
       </nav>
     </header>
@@ -98,6 +103,8 @@
     <main>
       <!-- HERO -->
       <section class="hero">
+        <span class="eyebrow">Private beta · iOS</span>
+
         <h1 class="hero-title">Never be late again.</h1>
 
         <div class="hero-dots" aria-hidden="true">
@@ -108,114 +115,32 @@
               Plan less. Let Storm tell you when to prepare.
         </p>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#waitlistForm">Join the Beta</a>
-          <a
-            class="btn btn-secondary"
-            href="mailto:Barrijal.s.yasmine@gmail.com"
-          >
-            Contact
-          </a>
-        </div>
-      </section>
-
-      <!-- WHY -->
-      <section class="features">
-        <h2 class="features-heading">Why Storm</h2>
-
-        <article class="card">
-          <h3>Sound familiar?</h3>
-          <p>You think you have enough time, then suddenly you're rushing out.</p>
-        </article>
-
-        <article class="card">
-          <h3>Traffic changes everything</h3>
-          <p>The weather gets worse and timing disappears instantly.</p>
-        </article>
-
-        <article class="card">
-          <h3>Stop guessing</h3>
-          <p>Storm calculates everything so you know when to prepare.</p>
-        </article>
-
-        <article class="card">
-          <h3>Leave at the right moment</h3>
-          <p>Get notified when it's time to go.</p>
-        </article>
-      </section>
-
-      <!-- HOW IT WORKS -->
-      <section class="features">
-        <h2 class="features-heading">How it works</h2>
-
-        <article class="card">
-          <h3>1. Add your events</h3>
-          <p>Use your calendar normally.</p>
-        </article>
-
-        <article class="card">
-          <h3>2. Storm checks conditions</h3>
-          <p>Traffic, weather, travel time.</p>
-        </article>
-
-        <article class="card">
-          <h3>3. Get ready</h3>
-          <p>Storm tells you when to prepare.</p>
-        </article>
-
-        <article class="card">
-          <h3>4. Leave on time</h3>
-          <p>No stress, no guessing.</p>
-        </article>
-      </section>
-
-      <!-- EXAMPLE -->
-      <section class="features">
-        <h2 class="features-heading">Example</h2>
-
-        <article class="card">
-          <h3>📅 Meeting 15:00</h3>
-          <p>Added to calendar.</p>
-        </article>
-
-        <article class="card">
-          <h3>🚿 Get ready 14:05</h3>
-          <p>Based on your routine.</p>
-        </article>
-
-        <article class="card">
-          <h3>🚗 Leave 14:32</h3>
-          <p>With traffic & weather.</p>
-        </article>
-
-        <article class="card">
-          <h3>✅ Arrive on time</h3>
-          <p>Calm and ready.</p>
-        </article>
-      </section>
-
-      <!-- WAITLIST -->
-      <section class="hero" id="waitlist">
-        <h2 class="hero-title">Beat the Storm. Be on time.</h2>
-
-        <p class="hero-hook">Join the first beta users and help shape Storm.</p>
-
-        <form id="waitlistForm" class="waitlist-form">
+        <form id="waitlistForm" class="capture-form" novalidate>
+          <label class="sr-only" for="emailInput">Email address</label>
           <input
             type="email"
             id="emailInput"
             placeholder="Enter your email"
             required
+            autocomplete="email"
           />
-
-          <button class="btn btn-primary" type="submit">
-            Join the Beta
-          </button>
+          <input
+            type="text"
+            name="company"
+            id="company"
+            class="sr-only"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <button class="capture-submit" type="submit">Join the beta</button>
         </form>
 
-        <p id="successMsg" style="display: none;">
-          You're on the list ⚡
+        <p id="successMsg" class="capture-success" hidden>
+          <span class="capture-success-dot" aria-hidden="true"></span>
+          You're on the list
         </p>
+
+        <a class="link-ghost" href="mailto:contact@getstorm.app">Contact us</a>
       </section>
     </main>
 
@@ -223,7 +148,8 @@
       <p>
         © Storm.
         <a href="privacy.html">Privacy</a>,
-        <a href="legal-notice.html">Legal notice</a>
+        <a href="legal-notice.html">Legal notice</a>,
+        <a href="terms.html">Terms</a>
       </p>
     </footer>
   </body>
