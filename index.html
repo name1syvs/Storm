@@ -3,16 +3,6 @@
   <head>
     <meta charset="utf-8" />
 
-    <script>
-      (function () {
-        var p = window.location.pathname;
-        if (p.endsWith("/") || p.endsWith(".html")) return;
-        var b = document.createElement("base");
-        b.href = window.location.origin + p + "/";
-        document.head.insertBefore(b, document.head.firstChild);
-      })();
-    </script>
-
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -28,7 +18,7 @@
         const form = document.getElementById("waitlistForm");
         const emailInput = document.getElementById("emailInput");
         const successMsg = document.getElementById("successMsg");
-        const botField = document.getElementById("company");
+        const botField = document.getElementById("stormHpField");
         const submitBtn = form ? form.querySelector(".capture-submit") : null;
 
         if (!form || !emailInput) return;
@@ -88,9 +78,7 @@
   <body>
     <header class="site-header">
       <nav class="nav-inner" aria-label="Main">
-        <a class="brand" href="index.html">
-          <span class="brand-text">Storm</span>
-        </a>
+        <a class="brand" href="index.html"><span class="brand-text">Storm</span></a>
         <div class="nav-links">
           <a href="privacy.html">Privacy policy</a>
           <a href="legal-notice.html">Legal notice</a>
@@ -115,7 +103,7 @@
               Plan less. Let Storm tell you when to prepare.
         </p>
 
-        <form id="waitlistForm" class="capture-form" novalidate>
+        <form id="waitlistForm" class="capture-form">
           <label class="sr-only" for="emailInput">Email address</label>
           <input
             type="email"
@@ -126,10 +114,11 @@
           />
           <input
             type="text"
-            name="company"
-            id="company"
-            class="sr-only"
+            name="storm_hp_field"
+            id="stormHpField"
+            class="honeypot"
             tabindex="-1"
+            aria-hidden="true"
             autocomplete="off"
           />
           <button class="capture-submit" type="submit">Join the beta</button>
